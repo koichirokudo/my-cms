@@ -15,4 +15,8 @@ interface BlogRepositoryInterface
     public function findById(int $id): ?Blog;
 
     public function create(CreateBlogInput $input): Blog;
+
+    public function update(Blog $blog, CreateBlogInput $input): Blog;
+
+    public function delete(Blog $blog): void;
 }

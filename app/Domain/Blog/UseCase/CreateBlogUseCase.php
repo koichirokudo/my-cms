@@ -12,6 +12,9 @@ class CreateBlogUseCase
 
     public function handle(CreateBlogInput $input): Blog
     {
+        if ($input->isPublished) {
+            $input->publishedAt = now();
+        }
         return $this->blogs->create($input);
     }
 }

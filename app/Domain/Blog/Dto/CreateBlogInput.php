@@ -9,6 +9,6 @@ class CreateBlogInput
         public readonly string $excerpt,
         public readonly string $body,
         public readonly bool $isPublished = false,
-        public readonly ?\DateTimeInterface $publishedAt = null,
+        public ?\DateTimeInterface $publishedAt = null,
     ) {}
 }

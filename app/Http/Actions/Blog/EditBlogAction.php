@@ -4,10 +4,9 @@ namespace App\Http\Actions\Blog;
 
 use App\Domain\Blog\UseCase\ShowBlogUseCase;
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Str;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-class ShowBlogAction
+class EditBlogAction
 {
     public function __construct(private ShowBlogUseCase $showBlog)
     {
@@ -19,11 +18,7 @@ class ShowBlogAction
         if (!$blog) {
             throw new NotFoundHttpException('Blog not found');
         }
-
-        $body = Str::markdown($blog->body ?? '', [
-            'html_input' => 'strip',
-            'allow_unsafe_links' => false,
-        ]);
-        return view('blog.show', compact('blog', 'body'));
+        // Reuse create form (store.blade.php) with pre-filled values
+        return view('blog.store', compact('blog'));
     }
 }

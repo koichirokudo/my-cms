@@ -35,4 +35,22 @@ class EloquentBlogRepository implements BlogRepositoryInterface
             'published_at' => $input->publishedAt,
         ]);
     }
+
+    public function update(Blog $blog, CreateBlogInput $input): Blog
+    {
+        $blog->fill([
+            'title' => $input->title,
+            'excerpt' => $input->excerpt,
+            'body' => $input->body,
+            'is_published' => $input->isPublished,
+            'published_at' => $input->publishedAt,
+        ]);
+        $blog->save();
+        return $blog;
+    }
+
+    public function delete(Blog $blog): void
+    {
+        $blog->delete();
+    }
 }

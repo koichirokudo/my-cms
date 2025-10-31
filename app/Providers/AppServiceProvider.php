@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Cache\RateLimiting\Limit;
+use Illuminate\Support\Facades\RateLimiter;
 use App\Domain\Inquiry\InquiryRepositoryInterface;
 use App\Infrastructure\Inquiry\EloquentInquiryRepository;
 use App\Domain\Blog\BlogRepositoryInterface;
@@ -27,6 +29,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Rate limiters
+        RateLimiter::for('inquiries', function ($request) {
+            return [
+                Limit::perMinute(5)->by($request->ip()),
+            ];
+        });
     }
 }

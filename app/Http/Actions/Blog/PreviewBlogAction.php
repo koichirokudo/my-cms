@@ -15,8 +15,15 @@ class PreviewBlogAction
         $title = $validated['title'];
         $excerpt = $validated['excerpt'];
         $body = $validated['body'];
-        $body_html = Str::markdown($body);
+        $is_published = (bool)($validated['is_published'] ?? false);
+        $blog_id = $request->input('blog_id');
+        $editing = $blog_id !== null;
 
-        return view('blog.preview', compact('title', 'excerpt', 'body', 'body_html'));
+        $body_html = Str::markdown($body, [
+            'html_input' => 'strip',
+            'allow_unsafe_links' => false,
+        ]);
+
+        return view('blog.preview', compact('title', 'excerpt', 'body', 'body_html', 'is_published', 'blog_id', 'editing'));
     }
 }
