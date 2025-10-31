@@ -35,7 +35,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/blogs', StoreBlogAction::class)->name('blog.store');
 
     // Edit/Update/Destroy
-    \App\Http\Actions\Blog\EditBlogAction::class;
     Route::get('/blogs/{id}/edit', \App\Http\Actions\Blog\EditBlogAction::class)->whereNumber('id')->name('blog.edit');
     Route::patch('/blogs/{id}', \App\Http\Actions\Blog\UpdateBlogAction::class)->whereNumber('id')->name('blog.update');
     Route::delete('/blogs/{id}', \App\Http\Actions\Blog\DestroyBlogAction::class)->whereNumber('id')->name('blog.destroy');

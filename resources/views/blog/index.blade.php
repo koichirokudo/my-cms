@@ -16,7 +16,7 @@
                             <a href="{{ route('blog.show', $post->id) }}" class="flex items-start gap-4 flex-1 min-w-0">
                                 {{-- アイコン --}}
                                 <span class="relative inline-flex items-center justify-center w-10 h-10 rounded-lg bg-brand/15 text-brand ring-1 ring-inset ring-brand/20 shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
                                         <path d="M8 2v4" />
                                         <path d="M12 2v4" />
                                         <path d="M16 2v4" />
@@ -40,7 +40,7 @@
                             <div class="flex items-center gap-2 ml-2">
                                 {{-- 編集 --}}
                                 <a href="{{ route('blog.edit', $post->id) }}" class="p-2 rounded hover:bg-white/10 text-gray-300 hover:text-white" title="編集">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
                                         <path d="M12 20h9" />
                                         <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z" />
                                     </svg>
@@ -50,7 +50,7 @@
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="p-2 rounded hover:bg-white/10 text-red-300 hover:text-red-400" title="削除">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
                                             <polyline points="3 6 5 6 21 6" />
                                             <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
                                             <path d="M10 11v6" />
