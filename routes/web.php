@@ -33,6 +33,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/blogs/create', CreateBlogAction::class)->name('blog.create');
     Route::post('/blogs/preview', PreviewBlogAction::class)->name('blog.preview');
     Route::post('/blogs', StoreBlogAction::class)->name('blog.store');
+
+    // Edit/Update/Destroy
+    \App\Http\Actions\Blog\EditBlogAction::class;
+    Route::get('/blogs/{id}/edit', \App\Http\Actions\Blog\EditBlogAction::class)->whereNumber('id')->name('blog.edit');
+    Route::patch('/blogs/{id}', \App\Http\Actions\Blog\UpdateBlogAction::class)->whereNumber('id')->name('blog.update');
+    Route::delete('/blogs/{id}', \App\Http\Actions\Blog\DestroyBlogAction::class)->whereNumber('id')->name('blog.destroy');
 });
 
 Route::get('/resumes', IndexResumeAction::class)->name('resume.index');
@@ -43,7 +49,9 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::view('/contact', 'contact.form')->name('contact.form');
-Route::post('/contact', StoreInquiryAction::class)->name('contact.store');
+Route::post('/contact', StoreInquiryAction::class)
+    ->middleware('throttle:inquiries')
+    ->name('contact.store');
 Route::view('/contact/thanks', 'contact.thanks')->name('contact.thanks');
 
 require __DIR__.'/auth.php';
