@@ -1,14 +1,21 @@
 <?php
 
-namespace App\Models;
+namespace App\Domain\Resume;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/**
+ * @mixin \IdeHelperResume
+ * @mixin IdeHelperResume
+ */
 class Resume extends Model
 {
     use HasFactory;
+
+    protected $table = 'resumes';
 
     /**
      * @var list<string>
@@ -48,6 +55,14 @@ class Resume extends Model
      */
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(\App\Models\User::class);
+    }
+
+    /**
+     * @param Builder<self> $query
+     */
+    public function scopeOrderByPeriod(Builder $query): Builder
+    {
+        return $query->orderByDesc('period_from')->orderByDesc('period_to');
     }
 }
