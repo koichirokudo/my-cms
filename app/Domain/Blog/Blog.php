@@ -1,30 +1,29 @@
 <?php
 
-namespace App\Models;
+namespace App\Domain\Blog;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * @mixin \IdeHelperBlog
+ */
 class Blog extends Model
 {
     use HasFactory;
+
+    protected $table = 'blogs';
 
     /**
      * @var list<string>
      */
     protected $fillable = [
         'title',
+        'excerpt',
         'body',
         'is_published',
         'published_at',
-    ];
-
-    /**
-     * @var array<string, mixed>
-     */
-    protected $attributes = [
-        'is_published' => false,
     ];
 
     /**
@@ -43,6 +42,7 @@ class Blog extends Model
      */
     public function scopeRecentPublished(Builder $query): Builder
     {
+        // 公開日時の降順
         return $query->where('is_published', true)->orderBy('published_at', 'desc');
     }
 }

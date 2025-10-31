@@ -1,4 +1,3 @@
-{{-- resources/views/contact/thanks.blade.php --}}
 @extends('layouts.app')
 
 @section('content')

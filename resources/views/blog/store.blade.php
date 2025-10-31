@@ -1,5 +1,3 @@
-<?php
-{{-- resources/views/blog/store.blade.php --}}
 @extends('layouts.app')
 
 @section('content')
@@ -19,11 +17,26 @@
                         タイトル <span class="text-red-600">*</span>
                     </label>
                     <input type="text" id="title" name="title"
-                           value="{{ old('title') }}"
+                           value="{{ old('title', request('title')) }}"
                            required
                            class="w-full rounded-lg border border-gray-700 px-4 py-3 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 @error('title') border-red-500 @enderror"
                            placeholder="ブログタイトル" />
                     @error('title')
+                    <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                {{-- 概要（excerpt） --}}
+                <div>
+                    <label for="excerpt" class="mb-2 block text-sm font-medium text-gray-300">
+                        概要（Excerpt） <span class="text-red-600">*</span>
+                    </label>
+                    <input type="text" id="excerpt" name="excerpt"
+                           value="{{ old('excerpt', request('excerpt')) }}"
+                           required maxlength="255"
+                           class="w-full rounded-lg border border-gray-700 px-4 py-3 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 @error('excerpt') border-red-500 @enderror"
+                           placeholder="一覧に表示される短い説明文" />
+                    @error('excerpt')
                     <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
                     @enderror
                 </div>
@@ -35,7 +48,7 @@
                     </label>
                     <textarea id="body" name="body" rows="10" required
                               class="w-full resize-none rounded-lg border border-gray-700 px-4 py-3 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 @error('body') border-red-500 @enderror"
-                              placeholder="Markdown形式でブログ本文を入力">{{ old('body') }}</textarea>
+                              placeholder="Markdown形式でブログ本文を入力">{{ old('body', request('body')) }}</textarea>
                     @error('body')
                     <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
                     @enderror

@@ -1,6 +1,3 @@
-<?php
-
-{{-- resources/views/blog/show.blade.php --}}
 @extends('layouts.app')
 
 @section('content')

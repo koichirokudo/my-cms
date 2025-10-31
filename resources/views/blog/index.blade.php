@@ -1,14 +1,17 @@
-<?php
 @extends('layouts.app')
 
 @section('content')
     <div class="flex min-h-screen flex-col bg-gray-900 p-9 text-white">
         <h2 class="text-2xl font-semibold mb-6">ブログ一覧</h2>
 
+        @if($posts->isEmpty())
+            <p class="text-gray-400">投稿が見つかりません。</p>
+        @endif
+
         <ul class="divide-y divide-gray-800">
             @foreach ($posts as $post)
                 <li>
-                    <a href="{{ route('blog.show', $post->slug) }}"
+                    <a href="{{ route('blog.show', $post->id) }}"
                        class="flex items-start gap-3 py-4 px-2 hover:bg-gray-900/60 transition-colors rounded-lg">
                         {{-- アイコン --}}
                         <svg xmlns="http://www.w3.org/2000/svg"
