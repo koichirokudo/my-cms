@@ -8,7 +8,7 @@
             </div>
 
             <form action="{{ route('blog.preview') }}" method="POST"
-                  class="space-y-6 rounded-lg border border-gray-700 bg-gray-900 p-6 text-white">
+                  class="space-y-6 rounded-lg border border-gray-700 bg-gray-900 p-6 text-black">
                 @csrf
 
                 {{-- タイトル --}}
@@ -19,7 +19,7 @@
                     <input type="text" id="title" name="title"
                            value="{{ old('title', request('title')) }}"
                            required
-                           class="w-full rounded-lg border border-gray-700 px-4 py-3 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 @error('title') border-red-500 @enderror"
+                           class="w-full rounded-lg border border-gray-700 bg-white text-black px-4 py-3 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 @error('title') border-red-500 @enderror"
                            placeholder="ブログタイトル" />
                     @error('title')
                     <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
@@ -34,7 +34,7 @@
                     <input type="text" id="excerpt" name="excerpt"
                            value="{{ old('excerpt', request('excerpt')) }}"
                            required maxlength="255"
-                           class="w-full rounded-lg border border-gray-700 px-4 py-3 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 @error('excerpt') border-red-500 @enderror"
+                           class="w-full rounded-lg border border-gray-700 bg-white text-black px-4 py-3 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 @error('excerpt') border-red-500 @enderror"
                            placeholder="一覧に表示される短い説明文" />
                     @error('excerpt')
                     <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
@@ -47,7 +47,7 @@
                         ブログ内容 <span class="text-red-500">*</span>
                     </label>
                     <textarea id="body" name="body" rows="10" required
-                              class="w-full resize-none rounded-lg border border-gray-700 px-4 py-3 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 @error('body') border-red-500 @enderror"
+                              class="w-full resize-none rounded-lg border border-gray-700 bg-white text-black px-4 py-3 focus:border-orange-500 focus:ring-2 focus:ring-orange-500 @error('body') border-red-500 @enderror"
                               placeholder="Markdown形式でブログ本文を入力">{{ old('body', request('body')) }}</textarea>
                     @error('body')
                     <p class="mt-1 text-sm text-red-500">{{ $message }}</p>

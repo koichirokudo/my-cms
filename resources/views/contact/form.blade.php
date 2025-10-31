@@ -25,7 +25,7 @@
                         name="name"
                         value="{{ old('name') }}"
                         required
-                        class="w-full rounded-lg border border-gray-700 px-4 py-3 transition-colors focus:border-orange-500 focus:ring-2 focus:ring-orange-500 @error('name') border-red-500 @enderror"
+                        class="w-full text-black rounded-lg border border-gray-700 px-4 py-3 transition-colors focus:border-brand focus:ring-2 focus:ring-brand @error('name') border-red-500 @enderror"
                         placeholder="山田 太郎"
                     />
                     @error('name')
@@ -43,7 +43,7 @@
                         name="email"
                         value="{{ old('email') }}"
                         required
-                        class="w-full rounded-lg border border-gray-700 px-4 py-3 transition-colors focus:border-orange-500 focus:ring-2 focus:ring-orange-500 @error('email') border-red-500 @enderror"
+                        class="w-full text-black rounded-lg border border-gray-700 px-4 py-3 transition-colors focus:border-brand focus:ring-2 focus:ring-brand @error('email') border-red-500 @enderror"
                         placeholder="example@example.com"
                     />
                     @error('email')
@@ -60,7 +60,7 @@
                         name="message"
                         rows="6"
                         required
-                        class="w-full resize-none rounded-lg border border-gray-700 px-4 py-3 transition-colors focus:border-orange-500 focus:ring-2 focus:ring-orange-500 @error('message') border-red-500 @enderror"
+                        class="w-full text-black resize-none rounded-lg border border-gray-700 px-4 py-3 transition-colors focus:border-brand focus:ring-2 focus:ring-brand @error('message') border-red-500 @enderror"
                         placeholder="お問い合わせ内容をご記入ください"
                     >{{ old('message') }}</textarea>
                     @error('message')
@@ -71,7 +71,7 @@
                 <div>
                     <button
                         type="submit"
-                        class="w-full rounded-lg bg-orange-400 px-5 py-2.5 font-medium text-white shadow transition hover:bg-orange-300 focus:ring-2 focus:ring-gray-100"
+                        class="w-full rounded-lg bg-brand px-5 py-2.5 font-medium text-white shadow transition hover:bg-brand-dark focus:ring-2 focus:ring-brand/50"
                     >
                         送信する
                     </button>

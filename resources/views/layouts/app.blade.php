@@ -16,10 +16,10 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="font-sans antialiased">
-    <!-- Page Heading -->
+<body class="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-gray-100 font-sans antialiased selection:bg-brand/20 selection:text-brand-light">
+    @include('layouts.navigation')
     <!-- Page Content -->
-    <main>
+    <main class="">
         @yield('content')
     </main>
 </body>

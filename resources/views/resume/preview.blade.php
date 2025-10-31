@@ -1,4 +1,3 @@
-<?php
 @extends('layouts.app')
 
 @section('content')
@@ -18,9 +17,9 @@
                 <p><span class="text-gray-400">担当領域：</span> {{ implode('・', $resume['tasks'] ?? []) }}</p>
             </div>
 
-            {{-- 業務内容 --}}
-            <div class="prose prose-invert prose-sky max-w-none border border-gray-700 rounded-lg bg-gray-800 p-6 mb-8">
-                {!! $body_html !!}
+            {{-- 業務内容（プレーンテキスト表示） --}}
+            <div class="max-w-none border border-gray-700 rounded-lg bg-gray-800 p-6 mb-8 whitespace-pre-line text-gray-200">
+                {{ $resume['description'] ?? '' }}
             </div>
 
             {{-- ボタン --}}
