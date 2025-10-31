@@ -4,7 +4,7 @@ namespace App\Http\Actions\Inquiry;
 
 use App\Domain\Inquiry\Dto\CreateInquiryInput;
 use App\Domain\Inquiry\UseCase\CreateInquiryUseCase;
-use App\Http\Requests\StoreInquiryRequest;
+use App\Http\Requests\Inquiry\StoreInquiryRequest;
 use App\Http\Responders\Inquiry\StoreInquiryHtmlResponder;
 use Illuminate\Http\RedirectResponse;
 
