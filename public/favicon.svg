@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+  <title>Favicon</title>
+  <desc>Application Logo used as site favicon.</desc>
+  <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2" fill="none" opacity=".35"/>
+  <circle cx="20" cy="20" r="12" fill="currentColor" opacity=".12"/>
+  <path d="M23 6L10 24h7l-2 10 15-20h-7l0-8z" fill="currentColor"/>
+</svg>
